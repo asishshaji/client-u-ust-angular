@@ -40,7 +40,9 @@ export class DialogComponent implements OnInit {
     this.userForm.controls['imageUrl'].setValue(this.data.imageUrl)
     this.userForm.controls['password'].setValue(this.data.password)
   }
-
+  onNoClick(): void {
+    this.dialogRef.close()
+  }
   updateUser() {
     this.data.firstName = this.userForm.controls['firstName'].value
     this.data.lastName = this.userForm.controls['lastName'].value

@@ -170,10 +170,10 @@ export class DashboardComponent implements OnInit {
       },
     )
   }
-
+  dialogRef: any
   openDialog() {
-    const dialogRef = this.dialog.open(DialogComponent, { data: this.employee })
-    dialogRef.afterClosed().subscribe((result) => {
+    this.dialogRef = this.dialog.open(DialogComponent, { data: this.employee })
+    this.dialogRef.afterClosed().subscribe((result: any) => {
       this.employee = result
     })
   }

@@ -10,6 +10,18 @@ import { adminUrl } from '../constants/constants'
   providedIn: 'root',
 })
 export class AdminService {
+  leaveTypeData = {}
+  createLeaveType(result: any) {
+    this.leaveTypeData = {
+      typeName: result,
+    }
+    this.setHeaderOptions()
+    return this._httpClient.post(
+      `${adminUrl}/leavetype`,
+      this.leaveTypeData,
+      this.headerOptions,
+    )
+  }
   addEmployee(employee: IEmployee) {
     this.setHeaderOptions()
     return this._httpClient.post<IEmployee>(

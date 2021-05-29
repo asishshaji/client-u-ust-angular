@@ -9,6 +9,7 @@ import { LeavereportComponent } from './leavereport/leavereport.component'
 import { LoginComponent } from './login/login.component'
 import { MatButtonModule } from '@angular/material/button'
 import { MatCardModule } from '@angular/material/card'
+import { MatChipsModule } from '@angular/material/chips'
 import { MatDatepickerModule } from '@angular/material/datepicker'
 import { MatDialogModule } from '@angular/material/dialog'
 import { MatFormFieldModule } from '@angular/material/form-field'
@@ -56,6 +57,7 @@ import { TimesheetComponent } from './timesheet/timesheet.component'
     MatTableModule,
     MatPaginatorModule,
     MatSortModule,
+    MatChipsModule,
   ],
 })
 export class EmployeeModule {}

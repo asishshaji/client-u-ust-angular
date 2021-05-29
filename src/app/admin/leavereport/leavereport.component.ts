@@ -58,6 +58,7 @@ export class LeavereportComponent implements OnInit {
 
   ngOnInit(): void {
     this.displayedColumns = [
+      // 'id',
       'username',
       'leaveType',
       'remarks',

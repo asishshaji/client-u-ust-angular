@@ -2,7 +2,10 @@ import { Component, OnInit, ViewChild } from '@angular/core'
 
 import { AdminService } from 'src/app/shared/services/admin.service'
 import { IEmployee } from 'src/app/shared/interfaces/IEmployee'
+import { LeavetypeComponent } from '../leavetype/leavetype.component'
+import { MatDialog } from '@angular/material/dialog'
 import { MatPaginator } from '@angular/material/paginator'
+import { MatSnackBar } from '@angular/material/snack-bar'
 import { MatSort } from '@angular/material/sort'
 import { MatTableDataSource } from '@angular/material/table'
 import { Router } from '@angular/router'
@@ -17,6 +20,8 @@ export class DashboardComponent implements OnInit {
     private _adminService: AdminService,
 
     private _router: Router,
+    public dialog: MatDialog,
+    private _snackBar: MatSnackBar,
   ) {}
 
   employees: IEmployee[]
@@ -38,12 +43,26 @@ export class DashboardComponent implements OnInit {
     this.getEmpData()
   }
 
+  openDialog(): void {
+    const dialogRef = this.dialog.open(LeavetypeComponent, {
+      width: '250px',
+    })
+
+    dialogRef.afterClosed().subscribe((result) => {
+      console.log(result)
+      if (result != undefined)
+        this._adminService.createLeaveType(result).subscribe((res) => {
+          this._snackBar.open('Created leave type', 'Close', { duration: 3000 })
+        })
+    })
+  }
+
   getEmpData() {
     this._adminService.getAllEmployees().subscribe(
       (res) => {
         this.employees = res
         this.displayedColumns = [
-          'id',
+          // 'id',
           'firstName',
           'lastName',
           'imageUrl',
@@ -85,7 +104,7 @@ export class DashboardComponent implements OnInit {
 
   logout() {
     this._adminService.deleteToken()
-    this._router.navigate(['admin', 'login'])
+    this._router.navigate(['/admin', 'login'])
   }
 
   getTimesheet(username: any) {

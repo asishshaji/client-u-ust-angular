@@ -30,7 +30,7 @@ export class LeavereportComponent implements OnInit {
         this.leaves = res
 
         this.displayedColumns = [
-          'id',
+          // 'id',
           'leaveType',
           'remarks',
           'date',

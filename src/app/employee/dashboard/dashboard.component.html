@@ -14,13 +14,13 @@
       Create employee
     </button> -->
     <button mat-raised-button color="primary" class="ml-2" [routerLink]="['/','leave']">
-      Create leave
+      Apply for leave
     </button>
     <button mat-raised-button color="primary" class="ml-2" [routerLink]="['/','timesheet']">
       Timesheet Report
     </button>
     <button mat-raised-button color="primary" class="ml-2" [routerLink]="['/','leave','report']">
-      Leave Report
+      Leave Status
     </button>
   </div>
 </div>
@@ -54,7 +54,10 @@
     <mat-grid-tile *ngFor="let d of timesheets;let i=index;">
       <mat-card style="height: 98%;width:90%">
         <mat-card-title>
-          {{d.timestamp | date:'fullDate'}}
+          <h2>
+            {{d.timestamp | date:'fullDate'}}
+
+          </h2>
         </mat-card-title>
 
 
@@ -72,10 +75,10 @@
 
         </mat-card-content>
         <mat-card-actions>
-          <button mat-raised-button (click)="updateAttendance(d,i,'save')" [disabled]="d.attendanceState=='submit'"
-            class="ml-2">Save</button>
-          <button mat-raised-button color="primary" (click)="updateAttendance(d,i,'submit')"
-            class="ml-2">Submit</button>
+          <!-- <button mat-raised-button (click)="updateAttendance(d,i,'save')" [disabled]="d.attendanceState=='submit'"
+            class="ml-2">Save</button> -->
+          <button mat-raised-button color="primary" (click)="updateAttendance(d,i,'submit')" class="ml-2"
+            [disabled]="d.attendanceState=='submit'">Submit</button>
         </mat-card-actions>
 
       </mat-card>
@@ -95,7 +98,10 @@
       <mat-grid-tile *ngFor="let d of missingtimestamps;let i=index;">
         <mat-card style="height: 98%;width:90%">
           <mat-card-title>
-            {{d | date:'fullDate'}}
+            <h2>
+              {{d | date:'fullDate'}}
+
+            </h2>
           </mat-card-title>
           <mat-card-content>
 

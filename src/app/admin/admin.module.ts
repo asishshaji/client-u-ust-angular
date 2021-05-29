@@ -9,6 +9,7 @@ import { LeavereportComponent } from './leavereport/leavereport.component'
 import { LoginComponent } from './login/login.component'
 import { MatButtonModule } from '@angular/material/button'
 import { MatCardModule } from '@angular/material/card'
+import { MatChipsModule } from '@angular/material/chips'
 import { MatDatepickerModule } from '@angular/material/datepicker'
 import { MatDialogModule } from '@angular/material/dialog'
 import { MatFormFieldModule } from '@angular/material/form-field'
@@ -24,7 +25,8 @@ import { MatSortModule } from '@angular/material/sort'
 import { MatTableModule } from '@angular/material/table'
 import { MatToolbarModule } from '@angular/material/toolbar'
 import { NgModule } from '@angular/core'
-import { TimesheetComponent } from './timesheet/timesheet.component'
+import { TimesheetComponent } from './timesheet/timesheet.component';
+import { LeavetypeComponent } from './leavetype/leavetype.component'
 
 @NgModule({
   declarations: [
@@ -34,6 +36,7 @@ import { TimesheetComponent } from './timesheet/timesheet.component'
     CreateemployeeComponent,
     TimesheetComponent,
     LeavereportComponent,
+    LeavetypeComponent,
   ],
   imports: [
     CommonModule,
@@ -55,6 +58,7 @@ import { TimesheetComponent } from './timesheet/timesheet.component'
     MatPaginatorModule,
     MatSortModule,
     MatListModule,
+    MatChipsModule,
   ],
 })
 export class AdminModule {}
